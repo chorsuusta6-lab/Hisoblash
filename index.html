@@ -1,0 +1,101 @@
+    <!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Savat — Zapchast Qidiruv</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER — savat tugmasi bilan
+       ============================================================ -->
+  <header>
+    <div class="header-inner">
+      <div>
+        <h1>Zapchast <span>Qidiruv</span></h1>
+        <p>Model, marka yoki tur bo'yicha qidiruv va savat</p>
+      </div>
+
+      <button class="cart-toggle" id="cartToggle" aria-label="Savatni ochish">
+        🛒
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       QIDIRUV
+       ============================================================ -->
+  <div class="search-wrap">
+    <div class="search-box">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="7"></circle>
+        <path d="m21 21-4.3-4.3"></path>
+      </svg>
+      <input id="searchInput" type="text" placeholder="Model, marka yoki zapchast turini kiriting..." autocomplete="off" />
+      <button id="searchBtn">Qidirish</button>
+    </div>
+  </div>
+
+  <!-- FILTRLAR -->
+  <div class="filters">
+    <span class="filter-label">Brend:</span>
+    <div class="filter-btns" id="brandBtns">
+      <span class="filter-loading">Yuklanmoqda...</span>
+    </div>
+  </div>
+
+  <div class="filters">
+    <span class="filter-label">Turi:</span>
+    <div class="filter-btns" id="typeBtns">
+      <span class="filter-loading">Yuklanmoqda...</span>
+    </div>
+    <button class="clear-btn" id="clearBtn">✕ Tozalash</button>
+  </div>
+
+  <div class="results-info" id="resultsInfo"></div>
+
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
+    <p>Yuklanmoqda...</p>
+  </div>
+
+  <div class="error-box" id="errorBox"></div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="pagination" id="pagination"></div>
+
+  <!-- ============================================================
+       SAVAT PANELI (yon tomondan chiqadi)
+       ============================================================ -->
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-panel" id="cartPanel">
+    <div class="cart-head">
+      <h2>🛒 Savat</h2>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <!-- to'ldiriladi -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Jami:</span>
+        <strong id="cartTotal">0 so'm</strong>
+      </div>
+      <button class="btn btn-primary cart-checkout" id="cartCheckout">Buyurtma berish</button>
+      <button class="btn cart-clear" id="cartClear">Savatni tozalash</button>
+    </div>
+  </aside>
+
+  <!-- TOAST -->
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
